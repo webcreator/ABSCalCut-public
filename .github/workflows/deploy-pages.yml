@@ -33,18 +33,16 @@ jobs:
 
       - name: Prepare site (exclude .github from published files)
         run: |
-          mkdir site
-          shopt -s dotglob nullglob
-          for item in *; do
-            [[ "$item" == ".github" ]] && continue
-            cp -R "$item" site/
-          done
+          site="$RUNNER_TEMP/pages-site"
+          mkdir -p "$site"
+          rsync -a --exclude='.github' --exclude='.git' ./ "$site/"
+          echo "SITE_DIR=$site" >> "$GITHUB_ENV"
 
       - uses: actions/configure-pages@v6
 
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: site
+          path: ${{ env.SITE_DIR }}
 
       - id: deployment
         uses: actions/deploy-pages@v5
