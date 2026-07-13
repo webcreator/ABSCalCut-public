@@ -1,0 +1,50 @@
+# Deploy static Flutter web build to GitHub Pages (no Flutter build step).
+#
+# Setup (one time) on the PUBLIC repo:
+# 1. Settings → Pages → Source: "GitHub Actions"
+# 2. Supabase → Authentication → URL Configuration:
+#    Site URL: https://<username>.github.io/<repo-name>/
+#    Redirect URLs: add the same URL and https://<username>.github.io/<repo-name>/**
+
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site (exclude .github from published files)
+        run: |
+          mkdir site
+          shopt -s dotglob nullglob
+          for item in *; do
+            [[ "$item" == ".github" ]] && continue
+            cp -R "$item" site/
+          done
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
