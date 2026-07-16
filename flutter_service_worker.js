@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "650c4c4d3b9b90f285268004b6477a6d",
+const RESOURCES = {"flutter_bootstrap.js": "0e10974b7ccd8d16d128bbc6d9140ec0",
 "version.json": "86b0b58796f5b7430fc54b28781bad9b",
 "index.html": "218175a5a95ef34292bcab03bcd1f745",
 "/": "218175a5a95ef34292bcab03bcd1f745",
-"main.dart.js": "91213f70ed23678ae868b845c275a742",
+"main.dart.js": "31d630a18bb230d47e6cb29a5eba57cd",
 "flutter.js": "83d881c1dbb6d6bcd6b42e274605b69c",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
@@ -24,7 +24,7 @@ const RESOURCES = {"flutter_bootstrap.js": "650c4c4d3b9b90f285268004b6477a6d",
 "assets/packages/record_web/assets/js/record.worklet.js": "6d247986689d283b7e45ccdf7214c2ff",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin": "d0ce3a6a5310996cbe69e0e74880e3f2",
-"assets/fonts/MaterialIcons-Regular.otf": "f5f34cb73b376a6ba912ac410565af1f",
+"assets/fonts/MaterialIcons-Regular.otf": "390d71d3b0139246d1a028ada861821b",
 "assets/assets/data/foods_seed.json": "8d3f314ca52b2dbabc633650df120ef1",
 "canvaskit/skwasm.js": "ea559890a088fe28b4ddf70e17e60052",
 "canvaskit/skwasm.js.symbols": "e72c79950c8a8483d826a7f0560573a1",
